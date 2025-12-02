@@ -20,7 +20,7 @@ const FONT_WEIGHTS = {
 };
 
 const setUpTextHover = (container, type) => {
-  if (!container) return;
+  if (!container) return () => {};
 
   const letters = container.querySelectorAll("span");
   const { min, max, default: base } = FONT_WEIGHTS[type]; // ← FIXED
@@ -53,7 +53,7 @@ const setUpTextHover = (container, type) => {
   container.addEventListener("mouseleave", handleMouseLeave);
 
   return () => {
-    container.removeEventListener("mousemove", handleMouseMove); D
+    container.removeEventListener("mousemove", handleMouseMove); 
     container.removeEventListener("mouseleave", handleMouseLeave); 
   };
 };
